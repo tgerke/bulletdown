@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Bulletdown: A bookdown-based Bullet Journal"
+author: "Travis Gerke"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: tgerke/bulletdown
+description: "This is a template for a Bullet Journal that is built with the bookdown package. The output format for this example is bookdown::gitbook."
 ---
 
 # Prerequisites
