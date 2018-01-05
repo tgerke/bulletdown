@@ -1,5 +1,7 @@
 # Monthly log {#monthlylog}
 
-## January
-
-## February
+```{r, results='asis', echo=FALSE}
+for (i in 1:length(month)){
+  cat("## ", month[i], "\n") 
+}
+```

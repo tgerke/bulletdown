@@ -13,7 +13,10 @@ description: "This is a template for a Bullet Journal that is built with the boo
 <!-- set up the dates over which the journal will run --> 
 ```{r  include=FALSE}
 dates <- seq(as.Date("2018-01-01"), as.Date("2018-12-31"), by="1 day")
-dates <- data.frame(date=dates, day=sapply(weekdays(dates), function(x) substr(x, 1, 1)))
+dates <- data.frame(date=dates, 
+                    month=sapply(months(dates), function(x) substr(x, 1, 3)),
+                    day=sapply(weekdays(dates), function(x) substr(x, 1, 1)))
+month <- as.character(unique(dates$month))
 ```
 
 [Future log](#futurelog)
