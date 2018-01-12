@@ -15,13 +15,16 @@ description: "This is a template for a Bullet Journal that is built with the boo
 require(tidyverse)
 require(tibbletime)
 
-# these lines only run on the first implementation to store calendar.RData
-# dates <- as_tbl_time(data.frame(date=Sys.Date()), date)
-# dates <- dates %>% mutate(month=substr(months(date), 1, 3),
-#                           day=substr(weekdays(date), 1, 1))
-# save(dates, file="calendar.RData")
+# top lines only run on the first implementation to create calendar.RData
+if (!file.exists("calendar.RData")) {
+  dates <- as_tbl_time(data.frame(date=Sys.Date()), date)
+  dates <- dates %>% mutate(month=substr(months(date), 1, 3),
+                            day=substr(weekdays(date), 1, 1))
+  save(dates, file="calendar.RData")
+} else {
+  load("calendar.RData")
+}
 
-load("calendar.RData")
 ```
 
 [Future log](#futurelog)
