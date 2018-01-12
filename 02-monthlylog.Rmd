@@ -1,7 +1,7 @@
 # Monthly log {#monthlylog}
 
 ```{r, results='asis', echo=FALSE}
-for (i in 1:length(month)){
-  cat("## ", month[i], "\n") 
+for (i in unique(dates$month)){
+  cat("## ", i, "\n") 
 }
 ```
