@@ -13,16 +13,18 @@ description: "This is a template for a Bullet Journal that is built with the boo
 <!-- load packages, initialize/load the calendar --> 
 ```{r  setup, include=FALSE}
 require(tidyverse)
+require(lubridate)
 require(tibbletime)
 
 # top lines only run on the first implementation to create calendar.RData
 if (!file.exists("calendar.RData")) {
-  dates <- as_tbl_time(data.frame(date=Sys.Date()), date)
-  dates <- dates %>% mutate(month=substr(months(date), 1, 3),
+  entries <- as_tbl_time(data.frame(date=Sys.Date()), date)
+  entries <- entries %>% mutate(month=months(date, abbreviate=TRUE),
                             day=substr(weekdays(date), 1, 1),
                             type="initializing entry", 
-                            content="none") 
-  save(dates, file="calendar.RData")
+                            content="none", 
+                            bullet="none") 
+  save(entries, file="calendar.RData")
 } else {
   load("calendar.RData")
 }
