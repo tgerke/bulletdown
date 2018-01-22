@@ -18,12 +18,14 @@ require(tibbletime)
 
 # top lines only run on the first implementation to create calendar.RData
 if (!file.exists("calendar.RData")) {
-  entries <- as_tbl_time(data.frame(date=Sys.Date()), date)
+  entries <- as_tbl_time(data.frame(date=today()), date)
+  # create the correct column classes, then slice to an empty table
   entries <- entries %>% mutate(month=months(date, abbreviate=TRUE),
-                            day=substr(weekdays(date), 1, 1),
-                            type="initializing entry", 
+                            day=weekdays(date, abbreviate=TRUE),
+                            type="initializing", 
                             content="none", 
-                            bullet="none") 
+                            bullet="none") %>% 
+                         slice(0)
   save(entries, file="calendar.RData")
 } else {
   load("calendar.RData")
